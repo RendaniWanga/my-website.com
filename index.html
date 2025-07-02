@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beauty SPA</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; }
+    nav a { margin-right: 1em; text-decoration: none; color: blue; }
+    nav a:hover { text-decoration: underline; }
+    section { display: none; }
+    section.active { display: block; }
+    img{max-width: 100%; height: auto; margin-top: 1em; border-radius: 8px;}
+    
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  
+  <main>
+    <section id="home" class="active">
+      <h1>Home</h1>
+      <p>Welcome to our Beauty SPA.</p>
+      <a href="https://www.beautyspa.com" target="_blank">Visit our website</a>
+      <img src ="https://www.beautyspa.com/images/pixabay.jpg" alt="Beauty SPA" />
+    
+    </section>
+
+    <section id="about">
+      <h1>About</h1>
+      <p>Our SPA is an oasis of calm where people actively do something for relaxation of body, mind and spirit.</p>
+      <p>This is achieved through treatments(message, beauty) as well as through fitness equipments for body.</p>
+
+    </section>
+
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>RendieRalie@gmail.com</p>
+      <p>0719500177</p>  
+
+
+      
+    </section>
+  </main>
+
+  <script>
+    function showPage(hash) {
+      document.querySelectorAll('main section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      const target = document.querySelector(hash || '#home');
+      if (target) {
+        target.classList.add('active');
+      }
+    }
+
+    window.addEventListener('hashchange', () => {
+      showPage(location.hash);
+    });
+
+    // Initial load
+    window.addEventListener('load', () => {
+      showPage(location.hash || '#home');
+    });
+  </script>
+
+</body>
+</html>
